@@ -1,0 +1,7 @@
+
+main.js
+----------------
+react.js
+jsx.js
+jsx!App
+main.js

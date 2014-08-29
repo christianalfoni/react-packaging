@@ -1,0 +1,1 @@
+webpackJsonp([0],[function(n,e,o){var r=o(1),l=o(2);r.renderComponent(l(null),document.body)},,function(n,e,o){var r=o(1),l=r.createClass({displayName:"App",render:function(){return r.DOM.h1(null,"Hello world")}});n.exports=l}]);
