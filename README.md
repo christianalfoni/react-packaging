@@ -1,7 +1,7 @@
 react-packaging
 ===============
 
-Examples of how to create a workflow with React JS using different packaging tools
+Examples of how to create a workflow with React JS using different packaging tools. Is part of the following post: [Choosing the correct packaging tool for React JS](http://christianalfoni.github.io/javascript/2014/08/29/choosing-the-correct-packaging-tool-for-react-js.html)
 
 All projects has `dev` as their development folder, and `dev/app` as root folder of the application itself.
 
