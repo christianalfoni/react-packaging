@@ -1,4 +1,5 @@
 var isProduction = process.env.NODE_ENV === 'production';
+var publicDir = isProduction ? '/dist' : '/build';
 
 // Setup Express
 var express = require('express');
@@ -8,12 +9,6 @@ var React = require('react');
 
 // Convert files with JSX to javascript
 nodejsx.install();
-
-
-// Load React and set paths to where main and requirejs is located
-// depending on environment
-
-var publicDir = isProduction ? '/dist' : '/build';
 
 app.use(express.static(__dirname + publicDir));
 app.get('/', function (req, res) {

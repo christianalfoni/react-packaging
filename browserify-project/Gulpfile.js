@@ -8,22 +8,28 @@ var uglify = require('gulp-uglify');
 var streamify = require('gulp-streamify');
 var notify = require('gulp-notify');
 
+// The task that handles both development and deployment
 var runBrowserifyTask = function (options) {
 
+	// We create one bundle for our dependencies,
+	// which in this case is only react
 	var vendorBundler = browserify({
-		debug: true
+		debug: true // We also add sourcemapping
 	})
 	.require('react');
 
+	// This bundle is for our application
 	var bundler = browserify({
-		debug: true,
-		external: ['react'],
+		debug: true, // Need that sourcemapping
+
+		// These options are just for Watchify
 		cache: {}, packageCache: {}, fullPaths: true
 	})
 	.require(require.resolve('./dev/app/main.js'), { entry: true })
-	.transform(reactify)
-	.external('react');
+	.transform(reactify) // Transform JSX 
+	.external('react'); // Do not include react
 
+	// The actual rebundle process
 	var rebundle = function() {
 		var start = Date.now();
 		bundler.bundle()
@@ -35,12 +41,13 @@ var runBrowserifyTask = function (options) {
 		}));
 	};
 
+	// Fire up Watchify when developing
 	if (options.watch) {
 		bundler = watchify(bundler);
 		bundler.on('update', rebundle);
 	}
 
-	
+	// Run the vendor bundle when the default Gulp task starts
 	vendorBundler.bundle()
 	.pipe(source('vendors.js'))
 	.pipe(streamify(uglify()))

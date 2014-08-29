@@ -5,15 +5,11 @@ var express = require('express');
 var app = express();
 var nodejsx = require('node-jsx');
 var React = require('react');
-
-// Convert files with JSX to javascript
-nodejsx.install();
-
-
-// Load React and set paths to where main and requirejs is located
-// depending on environment
-
 var publicDir = isProduction ? '/dist' : '/build';
+
+// Convert files with JSX to javascript when
+// requiring them
+nodejsx.install();
 
 app.use(express.static(__dirname + publicDir));
 app.get('/', function (req, res) {

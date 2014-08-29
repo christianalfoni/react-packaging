@@ -30,6 +30,14 @@ All projects has `dev` as their development folder, and `dev/app` as root folder
 
 * Run `npm install`
 * Run `node server` to start the development server
+* Run `grunt` to develop
+* Run `grunt deploy` to minify and deploy files to `dist`
+* Run `NODE_ENV=production node server` to run production version of server
+
+### Duo
+
+* Run `npm install`
+* Run `node server` to start the development server
 * Run `gulp` to develop
 * Run `gulp deploy` to minify and deploy files to `dist`
 * Run `NODE_ENV=production node server` to run production version of server
