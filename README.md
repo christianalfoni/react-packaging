@@ -19,7 +19,7 @@ All projects has `dev` as their development folder, and `dev/app` as root folder
 * Run `NODE_ENV=production node server` to run production version of server
 
 ### Browserify
-
+You can also use an updated version at this repo: [react-app-boilerplate](https://github.com/christianalfoni/react-app-boilerplate)
 * Run `npm install`
 * Run `node server` to start the development server
 * Run `gulp` to develop
